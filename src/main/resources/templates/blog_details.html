@@ -8,11 +8,11 @@
 <body>
 <header th:insert="blocks/header::header"></header>
 <div class="container mt-5">
-    <h1>BLog</h1>
-    <div th:each="el : ${posts}" class="alert alert-info mt-2">
-        <h3 th:text="${el.title}"></h3>
-        <p th:text="${el.anons}"></p>
-        <a th:href="'/blog/'+${el.id}"class="btn btn-warning">detailed</a>
+    <div th:each="el : ${post}" class="alert alert-info mt-2">
+        <h1 th:text="${el.title}"></h1>
+        <p th:text="${el.full_text}"></p>
+        <a th:href="'/blog/'+${el.id}+'/edit'"class="btn btn-warning">edit</a>
+        <a th:href="'/blog/'+${el.id}+'/remove'"class="btn btn-warning">delete</a>
     </div>
 </div>
 <div  th:insert="blocks/footer::footer"></div>
