@@ -62,4 +62,10 @@ postRepository.save(post);
         postRepository.save(post);
         return "redirect:/blog";
     }
+    @PostMapping("/blog/{id}/remove")
+    public String blogPostDelete(@PathVariable(value="id")long id){
+        Post post=postRepository.findById(id).orElseThrow();
+        postRepository.delete(post);
+        return "redirect:/blog";
+    }
 }
