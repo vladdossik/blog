@@ -42,5 +42,15 @@ postRepository.save(post);
         model.addAttribute("post",res);
         return "blog_details";
     }
-
+    @GetMapping("/blog/{id}/edit")
+    public String blogEdit(@PathVariable(value="id")long id, Model model){
+        if(!postRepository.existsById(id)){
+            return "redirect:/blog";
+        }
+        Optional<Post> post= postRepository.findById(id);
+        ArrayList<Post>res=new ArrayList<>();
+        post.ifPresent(res::add);
+        model.addAttribute("post",res);
+        return "blog-edit";
+    }
 }

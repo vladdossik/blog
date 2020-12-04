@@ -11,6 +11,7 @@
     <div th:each="el : ${post}" class="alert alert-info mt-2">
         <h1 th:text="${el.title}"></h1>
         <p th:text="${el.full_text}"></p>
+        <p><b>Views:</b> <span th:text="${el.views}"/></p>
         <a th:href="'/blog/'+${el.id}+'/edit'"class="btn btn-warning">edit</a>
         <a th:href="'/blog/'+${el.id}+'/remove'"class="btn btn-warning">delete</a>
     </div>
