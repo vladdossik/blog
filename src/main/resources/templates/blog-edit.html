@@ -9,10 +9,11 @@
 <header th:insert="blocks/header::header"></header>
 <div class="container mt-5 mb-5">
     <h1>Edit article</h1>
-    <form action="/blog/add" method="post">
-        <input type="text" name="title" placeholder="add title of the article" class="form-control"><br>
-        <input type="text" name="anons" placeholder="add anons of the article" class="form-control"><br>
-        <textarea  name="full_text" placeholder="add text of the article" class="form-control"></textarea><br>
+    <div th:each="el : ${post}" class="alert alert-info mt-2">
+    <form method="post">
+        <input type="text" th:value="${el.title}" name="title" placeholder="add title of the article" class="form-control"><br>
+        <input type="text" th:value="${el.anons}"  name="anons" placeholder="add anons of the article" class="form-control"><br>
+        <textarea  name="full_text"  placeholder="add text of the article" class="form-control" th:text="${el.full_text}"/><br>
         <button type="submit" class="btn btn-success">Update</button>
     </form>
 </div>
